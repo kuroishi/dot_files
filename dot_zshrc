@@ -1,0 +1,67 @@
+#
+# .zshrc is sourced in interactive shells.
+# It should contain commands to set up aliases,
+# functions, options, key bindings, etc.
+#
+
+autoload -U compinit
+compinit
+
+zstyle ':completion:*' menu select=4
+zstyle ':completion:*:fg:*' menu true select
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+## keep background processes at full speed
+#setopt NOBGNICE
+## restart running processes on exit
+#setopt HUP
+
+## history
+#setopt APPEND_HISTORY
+## for sharing history between zsh processes
+#setopt INC_APPEND_HISTORY
+#setopt SHARE_HISTORY
+
+## never ever beep ever
+#setopt NO_BEEP
+
+## automatically decide when to page a list of completions
+#LISTMAX=0
+
+## disable mail checking
+#MAILCHECK=0
+
+autoload -U colors
+colors
+
+#export TERM=xterm
+#export LANG=ja_JP.UTF-8
+#export LANG=C
+export LANG=en_US.UTF-8
+
+HISTFILE=$HOME/.zsh-history           # file save
+HISTSIZE=500000                       # history save size in memory
+SAVEHIST=500000                       # history save size
+setopt extended_history               # add timestamp
+function history-all { history -E 1 } # history dump command
+setopt share_history
+##
+setopt autopushd
+
+alias u="cd .."
+alias j="jobs -l"
+alias ,="open ."
+alias d='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir"'
+alias ls="ls -F"
+alias ll="ls -la"
+alias lh="ls -lat | head -10"
+alias less="less -X"
+alias tmpmkdir='mkdir `date +%F` && cd `date +%F`'
+
+#export GEM_HOME=$HOME/local/rubygems/gems
+#export RUBYLIB=$HOME/local/rubygems/lib
+#export RB_USER_INSTALL=true
+[ -d $HOME/.plenv ] && eval "$(plenv init - zsh)"
+[ -d $HOME/.nodenv ] && eval "$(nodenv init -)"
