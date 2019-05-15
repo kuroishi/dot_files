@@ -1,0 +1,20 @@
+#
+# .zshenv -- Zsh first reads this file even if it is not interactive.
+#
+umask 022
+
+path=(\
+#        $HOME/.cargo/bin \
+#        $HOME/.plenv/bin \
+#        $HOME/.nodenv/bin \
+#        $HOME/.pyenv/shims \
+        $HOME/bin \
+#        $HOME/local/bin \
+#        $HOME/local/apache-maven-3.3.9/bin \
+        /usr/local/bin \
+        /usr/local/sbin \
+        /usr/bin \
+        /bin \
+)
+
+export PATH
