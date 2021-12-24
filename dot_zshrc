@@ -4,8 +4,6 @@
 # functions, options, key bindings, etc.
 #
 
-autoload -U compinit
-compinit
 
 zstyle ':completion:*' menu select=4
 zstyle ':completion:*:fg:*' menu true select
@@ -41,7 +39,7 @@ colors
 #export LANG=C
 export LANG=en_US.UTF-8
 
-HISTFILE=$HOME/.zsh-history           # file save
+HISTFILE=$HOME/.zsh_history           # file save
 HISTSIZE=500000                       # history save size in memory
 SAVEHIST=500000                       # history save size
 setopt extended_history               # add timestamp
@@ -65,3 +63,6 @@ alias tmpmkdir='mkdir `date +%F` && cd `date +%F`'
 #export RB_USER_INSTALL=true
 [ -d $HOME/.plenv ] && eval "$(plenv init - zsh)"
 [ -d $HOME/.nodenv ] && eval "$(nodenv init -)"
+
+autoload -Uz compinit
+compinit
